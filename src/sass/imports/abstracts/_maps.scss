@@ -7,6 +7,24 @@ $colors: (
     ),
     black: (
         1000: hsl(0, 0%, 0%)
+    ),
+    gray: (
+        1000: hsl(0, 0%, 65%)
+    )
+);
+
+$layout-colors: (
+    lightbox: (
+        overlay: (
+            background: rgba(get($colors, white, 1000), .95)
+        ),
+        controls: (
+            primary: get($colors, gray, 1000),
+            hover: darken(get($colors, gray, 1000), 55%)
+        ),
+        spinner: (
+            border: get($colors, gray, 1000)
+        )
     )
 );
 

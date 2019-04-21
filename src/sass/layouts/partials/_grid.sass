@@ -1,0 +1,12 @@
+.grid
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(calc(320px - 2em), 1fr))
+    grid-auto-rows: 25em
+    grid-gap: 1em
+    padding: 1em
+    &__item
+        display: block
+    &__image
+            height: 100%
+            width: 100%
+            object-fit: cover

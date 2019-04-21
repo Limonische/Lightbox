@@ -1,0 +1,82 @@
+.lightbox
+    +transition(opacity, .7s)
+    z-index: 1000
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    align-items: center
+    justify-content: center
+    display: none
+    opacity: 0
+    &.active
+        opacity: 1
+    &__overlay
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background-color: get($layout-colors, lightbox, overlay, background)
+    &__counter
+        position: absolute
+        top: 1.5em
+        line-height: 1em
+    &__spinner
+        position: absolute
+        height: 4em
+        width: 4em
+        border-radius: 50%
+        border: 2px solid get($layout-colors, lightbox, spinner, border)
+        border-right-color: transparent
+        animation: spin .7s linear infinite
+    &__close, &__next, &__prev
+        outline: none
+        padding: 0
+        line-height: 0
+        background-color: transparent
+        border: none
+        cursor: pointer
+        position: absolute
+        &:hover
+            .lightbox__icon
+                fill: get($layout-colors, lightbox, controls, hover)
+    &__close
+        height: 1.6em
+        width: 1.6em
+        top: 1.2em
+        right: 1em
+    &__next, &__prev
+        height: 2.2em
+        width: 2.2em
+    &__next
+        right: .6em
+    &__prev
+        left: .6em
+    &__icon
+        +transition(fill)
+        height: 100%
+        width: 100%
+        fill: get($layout-colors, lightbox, controls, primary)
+    &__picture
+        margin: 0
+        z-index: 100
+        position: relative
+        line-height: 0
+    &__curtain
+        position: absolute
+        display: block
+        z-index: 150
+        &--left, &--right
+            @extend .lightbox__curtain
+            top: 0
+            bottom: 0
+            width: 50%
+        &--left
+            left: 0
+        &--right
+            right: 0
+    &__image
+        max-width: calc(100vw - 8em)
+        max-height: calc(100vh - 8em)
