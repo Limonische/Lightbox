@@ -163,7 +163,7 @@ class Lightbox {
     }
 
     onLightboxTransitionEnd = () => {
-        enableBodyScroll(null);
+        enableBodyScroll(this.lightbox);
         this.lightbox.style.display = 'none';
         this.lightbox.removeEventListener('transitionend', this.onLightboxTransitionEnd);
     }
@@ -175,7 +175,7 @@ class Lightbox {
         this.lightbox.style.display = this.options.lightboxDisplay;
 
         setTimeout(() => {
-            disableBodyScroll(null, this.options.bodyScrollLock);
+            disableBodyScroll(this.lightbox, this.options.bodyScrollLock);
             this.lightbox.classList.add('active');
         }, 100);
     }
