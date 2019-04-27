@@ -23,10 +23,14 @@
         position: absolute
         top: 1.5em
         line-height: 1em
+        left: 50%
+        transform: translateX(-50%)
     &__spinner
         position: absolute
         height: 4em
         width: 4em
+        left: calc(50% - 2em)
+        top: calc(50% - 2em)
         border-radius: 50%
         border: 2px solid get($layout-colors, lightbox, spinner, border)
         border-right-color: transparent
