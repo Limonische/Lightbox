@@ -107,7 +107,6 @@ class Lightbox {
         this.closers.forEach(closer => closer.removeEventListener('click', this.onCloserClick));
         this.nexts.forEach(next => next.removeEventListener('click', this.onNextClick));
         this.prevs.forEach(prev => prev.removeEventListener('click', this.onPrevClick));
-        this.image.removeEventListener('load', this.onImageLoad);
         document.removeEventListener('keyup', this.onKeyUp);
     }
 
@@ -186,6 +185,7 @@ class Lightbox {
         this.image.style.willChange = 'auto';
         this.lightbox.classList.remove('active');
         this.lightbox.addEventListener('transitionend', this.onLightboxTransitionEnd);
+        this.removeEventListeners();
     }
 
     setCounters() {
